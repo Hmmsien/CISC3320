@@ -2,11 +2,11 @@
 
 ## Assignment #1 Process Creation 
 
-Problem statement:
+Problem statement:  
 Using fork command to create child process and grandchild process. 
 Then output the string information to describe each process identies and PID.
 
-Requirement:
+Requirement:  
 The P (parent) process shall print its PID along with the string 
 “I am the grandparent process”.
 The C (child) process shall print its PID, and the string 
