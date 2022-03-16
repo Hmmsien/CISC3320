@@ -6,23 +6,26 @@ import java.util.concurrent.ThreadLocalRandom;
 public class SemaphoresResource {
     
     //Declare the semaphores
-    public Semaphore printer, plotter, scanner;
+    public Semaphore printers, plotters, scanners;
     
+    //Initialize the semaphores with the appropriate values
     private void initSemaphores() {
-        printer = new Semaphore(5);
-        plotter = new Semaphore(6);
-        scanner = new Semaphore(4);
-        }
-        public static void main(String[] args) throws Exception {
-            SemaphoresResource rm = new SemaphoresResource();
-        //Declare and initialize the semaphores with appropriate values
+        printers = new Semaphore(5);
+        plotters = new Semaphore(6);
+        scanners = new Semaphore(4);
+    }
+    public static void main(String[] args) throws Exception {
+        SemaphoresResource rm = new SemaphoresResource();
+        
+        //call function to initialize the semaphores
         rm.initSemaphores();
-        //Loops through a sequence of 4 times
+
+        //Loops through a sequence 4 times
         for(int i=1; i<=4; i++) {
-        //Create a child process to request a resource
-        new Resource(rm).start();
-        //Sleep for random time between 2 to 4 seconds
-        Thread.sleep(ThreadLocalRandom.current().nextInt(2, 4 + 1)*1000);
+            //Create a child process to request a resource
+            new Resource(rm).start();
+            //Sleep for random time between 1 to 3 seconds
+            Thread.sleep(ThreadLocalRandom.current().nextInt(1, 3 + 1)*1000);
         }
     }
 }
