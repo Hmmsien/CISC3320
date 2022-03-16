@@ -1,2 +1,2 @@
 lab2:
-	javac -d . SemaphoresResource.java && java Semaphores.SemaphoresResource 
+	javac -d . SemaphoresResource.java Resource.java && java Semaphores.SemaphoresResource Semaphores.Resource
